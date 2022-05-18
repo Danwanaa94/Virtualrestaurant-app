@@ -1,28 +1,25 @@
-import {useContext, useState, useEffect} from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import {AuthContext} from "../context/AuthContext"
+import { useContext, useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 function Signup() {
-const Navigate = useNavigate();
+  const Navigate = useNavigate();
 
-const { success, loading, user, authSignup } = useContext(AuthContext);
-const [username, setUsername] =useState("")
-const [email, setEmail] = useState("");
-const [password, setPassword] = useState("");
+  const { success, loading, user, authSignup } = useContext(AuthContext);
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-useEffect(() => {
-  if (success) {
-    Navigate("/home");
-  }
-}, [success]);
-  
-const handleSubmit = (e) => {
-  e.preventDefault();
-  authSignup(username, email, password);
-};
+  useEffect(() => {
+    if (success) {
+      Navigate("/restaurants");
+    }
+  }, [success]);
 
-
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    authSignup(username, email, password);
+  };
 
   return (
     <form onSubmit={handleSubmit} className="form">
@@ -58,23 +55,30 @@ const handleSubmit = (e) => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-<button type="submit" className="btn btn-primary m-2">{loading ? "Loading..." : "Signup"}
+        <button type="submit" className="btn btn-primary m-2">
+          {loading ? "Loading..." : "Signup"}
         </button>
-        {/* <div className="row">
+        <div className="row">
           I already have an account
-          <Link to="/" className="nav-link">Login</Link>
-        </div> */}
-        {/* <div className="row">
-          I don't have an account
-          <Link to="/signup" className="nav-link"></Link>
+          <Link to="/" className="nav-link">
+            Login
+          </Link>
         </div>
         <div className="row">
-          I already have a restaurant account
-          <Link to="/loginrestaurant" className="nav-link">Login</Link>
-        </div> */}
+          I don't have an account
+          <Link to="/signup" className="nav-link">
+            sign up
+          </Link>
+        </div>
+        <div className="row">
+          I am a restaurant owner
+          <Link to="/addrestaurant" className="nav-link">
+            register restaurant
+          </Link>
+        </div>
       </div>
     </form>
   );
 }
 
-export default Signup
+export default Signup;
