@@ -1,13 +1,23 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { MenuContext } from "../context/MenuContext";
+import { useNavigate } from 'react-router-dom'
+import {AuthContext} from '../context/AuthContext'
 
 function AddMenu() {
+  const Navigate = useNavigate();
+  const { success, loading, AuthAddMenu } = useContext(AuthContext);
   const [menu, setMenu] =useState("");
   const [id, setId] = useState("");
   const [image, setImage] = useState("");
   const [price, setPrice] = useState("");
 
   const { AddMenu } = useContext(MenuContext);
+   useEffect(() => {
+     if (success) {
+       Navigate("/addmenu");
+     }
+   }, [success]);
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     AddMenu({

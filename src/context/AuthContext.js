@@ -24,10 +24,16 @@ function AuthContextProvider({ children }) {
     })
       .then((res) => res.json())
       .then((data) => {
-        setSuccess(true);
-        setUser(data);
+        if (data.error) {
+          setSuccess(false);
+          setError(data);
+        } else {
+          setSuccess(true);
+          setUser(data);
+        }
       })
       .catch((err) => {
+        console.log("error here: ", err);
         setError(err);
       });
     setLoading(false);
@@ -36,7 +42,7 @@ function AuthContextProvider({ children }) {
   //signup function
   const authRegister = async (username, email, password) => {
     setLoading(true);
-    await fetch("/api/users/register", {
+    await fetch("/api/users/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -49,10 +55,17 @@ function AuthContextProvider({ children }) {
     })
       .then((res) => res.json())
       .then((data) => {
-        setSuccess(true);
-        setUser(data);
+        console.log("data from here :", data);
+        if (data.message == "user created") {
+          setSuccess(true);
+          setUser(data);
+        } else {
+          setSuccess(false);
+          setUser(data);
+        }
       })
       .catch((err) => {
+        console.log("error from resgiter: ", err);
         setError(err);
       });
     setLoading(false);

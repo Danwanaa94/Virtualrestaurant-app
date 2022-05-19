@@ -5,20 +5,20 @@ import { AuthContext } from "../context/AuthContext";
 function Signup() {
   const Navigate = useNavigate();
 
-  const { success, loading, user, authSignup } = useContext(AuthContext);
+  const { success, loading, user, authRegister } = useContext(AuthContext);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   useEffect(() => {
     if (success) {
-      Navigate("/restaurants");
+      Navigate("/home");
     }
   }, [success]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    authSignup(username, email, password);
+    authRegister(username, email, password);
   };
 
   return (
@@ -60,19 +60,19 @@ function Signup() {
         </button>
         <div className="row">
           I already have an account
-          <Link to="/" className="nav-link">
+          <Link to="/" className="raf">
             Login
           </Link>
         </div>
-        <div className="row">
+           {/* <div className="row">
           I don't have an account
-          <Link to="/signup" className="nav-link">
+          <Link to="/signup" className="raf">
             sign up
-          </Link>
-        </div>
-        <div className="row">
+          </Link> 
+        </div>   */}
+        <div className="row" >
           I am a restaurant owner
-          <Link to="/addrestaurant" className="nav-link">
+          <Link to="/addrestaurant" className="raf" >
             register restaurant
           </Link>
         </div>

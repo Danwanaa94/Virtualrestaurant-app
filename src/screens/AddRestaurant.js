@@ -14,7 +14,7 @@ function AddRestaurant() {
 
   useEffect(() => {
     if (success) {
-      Navigate("/");
+      Navigate("/addmenu");
     }
   }, [success]);
 
@@ -83,16 +83,16 @@ function AddRestaurant() {
         </button>
         <div className="row">
           I already have an account
-          <Link to="/" className="nav-link">Login</Link>
+          <Link to="/" className="raf">Login</Link>
         </div>
         <div className="row">
           I don't have an account
-          <Link to="/signup" className="nav-link">sign up</Link>
+          <Link to="/signup" className="raf">sign up</Link>
         </div>
 
         <div className="row">
           I am restaurant owner
-          <Link to="/addrestaurant" className="nav-link">
+          <Link to="/addrestaurant" className="raf">
             Register restaurant
           </Link>
         </div>
