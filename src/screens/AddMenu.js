@@ -5,10 +5,10 @@ import {AuthContext} from '../context/AuthContext'
 
 function AddMenu() {
   const Navigate = useNavigate();
-  const { success, loading, AuthAddMenu } = useContext(AuthContext);
+  const { success} = useContext(AuthContext);
   const [menu, setMenu] =useState("");
   const [id, setId] = useState("");
-  const [image, setImage] = useState("");
+  // const [image, setImage] = useState("");
   const [price, setPrice] = useState("");
 
   const { AddMenu } = useContext(MenuContext);
@@ -16,14 +16,14 @@ function AddMenu() {
      if (success) {
        Navigate("/addmenu");
      }
-   }, [success]);
+   });
   
   const handleSubmit = (e) => {
     e.preventDefault();
     AddMenu({
       menu:menu.split(","),
       id,
-      image:("url"),
+      // image:("//https:bank.jpg"),
       price,
     });
   };
@@ -40,10 +40,10 @@ function AddMenu() {
           <input type="id"className="form-control"onChange={(t) => setId(t.target.value)}/>
               </div>
               
-        <div className="form-group">
+        {/* <div className="form-group">
           <label htmlFor="image">image</label>
           <input type="url" className="form-control"onChange={(t) => setImage(t.target.value)}/>
-              </div>
+              </div> */}
               
         <div className="form-group">
           <label htmlFor="price">price</label>

@@ -56,7 +56,7 @@ function AuthContextProvider({ children }) {
       .then((res) => res.json())
       .then((data) => {
         console.log("data from here :", data);
-        if (data.message == "user created") {
+        if (data.message === "user created") {
           setSuccess(true);
           setUser(data);
         } else {

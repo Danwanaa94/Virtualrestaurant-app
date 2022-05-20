@@ -7,25 +7,25 @@ function Pricing() {
         <a
           class="nav-link dropdown-toggle show"
           data-bs-toggle="dropdown"
-          href="#"
+          href="button"
           role="button"
           aria-haspopup="true"
           aria-expanded="true"
         >
-        Pricing
+        Pricings
         </a>
         <div class="dropdown-menu show" data-bs-popper="none">
-          <a class="dropdown-item" href="#">
+          <a class="dropdown-item" href="50">
             50
           </a>
-          <a class="dropdown-item" href="#">
+          <a class="dropdown-item" href="10">
             10
           </a>
-          <a class="dropdown-item" href="#">
+          <a class="dropdown-item" href="15">
             15
           </a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">
+          <a class="dropdown-item" href="30">
         30
           </a>
         </div>

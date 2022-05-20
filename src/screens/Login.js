@@ -5,7 +5,7 @@ import { AuthContext } from "../context/AuthContext";
 function Login() {
   const Navigate = useNavigate();
 
-  const { success,error, loading,user, authLogin } = useContext(AuthContext);
+  const { success,error, loading, authLogin } = useContext(AuthContext);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,7 +14,7 @@ function Login() {
     if (success) {
       Navigate("/home");
     }
-  }, [success]);
+  },);
   const handleSubmit = (e) => {
     e.preventDefault();
     authLogin(email, password);

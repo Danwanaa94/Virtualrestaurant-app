@@ -5,7 +5,7 @@ function NavBar() {
   return (
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <div className='logo'>
-        <img src={logo} />
+        <img src={logo} alt="" />
       </div>
       <h3 className="uf">WELCOME TO OUR VIRTUAL RESTAURANTS APP</h3>
       <div class="container-fluid">
@@ -27,13 +27,13 @@ function NavBar() {
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="pricing">
                 pricing
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                Contact us
+              <a class="nav-link" href="booking">
+                booking
               </a>
             </li>
           </ul>
