@@ -16,7 +16,7 @@ function AddRestaurant() {
     if (success) {
       Navigate("/addmenu");
     }
-  }, [success]);
+  },);
 
   const handleSubmit = (e) => {
     e.preventDefault();
