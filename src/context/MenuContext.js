@@ -1,5 +1,5 @@
-import { createContext, useContext, useState } from "react";
-import { AuthContext } from "./AuthContext";
+import { createContext, useState } from "react";
+// import { AuthContext } from "./AuthContext";
 
 const MenuContext = createContext();
 
@@ -10,7 +10,7 @@ const MenuContextProvider = ({children}) => {
   const [isPending, setisPending] = useState(false);
   const [error, setError] = useState(null);
 
-  const { user } = useContext(AuthContext);
+  // const { user } = useContext(AuthContext);
 
   async function getALLMenus() {
     setisPending(true);
